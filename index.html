@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>template</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="css/styles.css" />
     <link
       rel="shortcut icon"
@@ -47,7 +52,54 @@
         ></div>
       </div>
     </header>
-    <h1 class="tilte">mi portfolio</h1>
+    <main class="main">
+      <section class="column column--left">
+        <!-- PROFILE CARD -->
+        <article class="card card--profile">
+          <!-- contenedor imagen -->
+          <div class="card__image-container">
+            <img src="assets/images/profile.jpg" alt="" />
+          </div>
+          <!-- cabecera de la targeta -->
+          <div class="card__header">
+            <h2 class="card__title">Manuel Jesús Donoso Pérez</h2>
+            <p class="card__subtitle">developer</p>
+          </div>
+          <!-- cuerpo de la targeta -->
+          <div class="card__body">
+            <!-- enlance correo -->
+            <div class="card__link">
+              <!-- icono font awesome -->
+              <i class="fas fa-envelope icon"></i>
+              <a href="mailto:developer@manueldonoso.es"
+                >deeloper@manueldonoso.es</a
+              >
+            </div>
+            <!-- enlance correo -->
+            <div class="card__link">
+              <!-- icono font awesome -->
+              <i class="fas fa-envelope icon"></i>
+              <a href="mailto:proyectos@manueldonoso.es"
+                >proyectos@manueldonoso.es</a
+              >
+            </div>
+            <!-- enlance telefono -->
+            <div class="card__link">
+              <!-- icono font awesome -->
+              <i class="fas fa-phone-alt icon"></i>
+              <a href="tel:655354312">+34 655 35 43 12</a>
+            </div>
+            <!-- descripcion -->
+            <p class="card__text">
+              Estudiante del IES ALBARREGAS, Apasionado de las nuevas
+              tecnologías, y en especial por el desarrollo web.
+            </p>
+            <!-- fin cuerpo de targeta -->
+          </div>
+        </article>
+      </section>
+    </main>
+
     <script src="js/scripts.js"></script>
   </body>
 </html>
