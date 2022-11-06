@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>template</title>
+    <title>portfolio</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -30,6 +30,17 @@
           <p id="toggle-text" class="toggle-theme__text">Dark mode</p>
         </div>
       </div>
+      <!-- Selector multi-idiomas -->
+      <div id="flags" class="flags">
+        <div class="flags__item">
+          <img src="assets/icons/es.svg" data-language="es" alt="" />
+        </div>
+        <div class="flags__item">
+          <img src="assets/icons/gb.svg" data-language="en" alt="" />
+        </div>
+      </div>
+
+      <!-- selector de color -->
       <div id="toggle-colors" class="colors">
         <div
           data-color="hsl(214, 84%, 56%)"
@@ -63,7 +74,14 @@
           <!-- cabecera de la targeta -->
           <div class="card__header">
             <h2 class="card__title">Manuel Jesús Donoso Pérez</h2>
-            <p class="card__subtitle">developer</p>
+            <p
+              class="card__subtitle"
+              data-section="profile"
+              data-value="rol"
+              =""
+            >
+              developer
+            </p>
           </div>
           <!-- cuerpo de la targeta -->
           <div class="card__body">
@@ -90,7 +108,11 @@
               <a href="tel:655354312">+34 655 35 43 12</a>
             </div>
             <!-- descripcion -->
-            <p class="card__text">
+            <p
+              class="card__text"
+              data-section="profile"
+              data-value="description"
+            >
               Estudiante del IES ALBARREGAS, Apasionado de las nuevas
               tecnologías, y en especial por el desarrollo web.
             </p>
@@ -175,7 +197,7 @@
         <article class="card card--project">
           <div class="card__image-container">
             <img
-              src="assets/images/project.jpg"
+              src="assets/images/project_portfolio.jpg"
               alt="Landing page"
               class="card__image"
             />
@@ -187,22 +209,38 @@
               <span class="project__tag">JS</span>
               <span class="project__tag">Responsive</span>
             </div>
-            <h2 class="card__title">Landing page</h2>
-            <p class="card__text">
+            <h2
+              class="card__title"
+              data-section="Project"
+              data-value="first-project-title"
+            >
+              Landing page
+            </h2>
+            <p
+              class="card__text"
+              data-section="Project"
+              data-value="first-paragraph-description-p1"
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
               voluptate soluta, ea eius exercitationem reiciendis quis excepturi
               incidunt nostrum mollitia, aut facilis optio id. Maiores labore
               placeat optio reiciendis quos!
             </p>
-            <p class="card__text">
+            <p
+              class="card__text"
+              data-section="Project"
+              data-value="second-paragraph-description-p1"
+            >
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias,
               ut? Corporis, similique, voluptates nisi amet ducimus omnis natus
               cum dicta, optio accusantium est saepe quisquam illum aut fugit!
               Quibusdam, quasi.
             </p>
             <div class="buttons">
-              <a href="#" class="button button--primary">Demo</a>
-              <a href="#" class="button button--ghost">Code</a>
+              <a href="#" class="button button--primary" target="_blank"
+                >Demo</a
+              >
+              <a href="#" class="button button--ghost" target="_blank">Code</a>
             </div>
           </div>
         </article>
@@ -222,22 +260,38 @@
               <span class="project__tag">JS</span>
               <span class="project__tag">Responsive</span>
             </div>
-            <h2 class="card__title">Landing page</h2>
-            <p class="card__text">
+            <h2
+              class="card__title"
+              data-section="Project"
+              data-value="second-project-title"
+            >
+              Landing page
+            </h2>
+            <p
+              class="card__text"
+              data-section="Project"
+              data-value="first-paragraph-description-p2"
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
               voluptate soluta, ea eius exercitationem reiciendis quis excepturi
               incidunt nostrum mollitia, aut facilis optio id. Maiores labore
               placeat optio reiciendis quos!
             </p>
-            <p class="card__text">
+            <p
+              class="card__text"
+              data-section="Project"
+              data-value="second-paragraph-description-p2"
+            >
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias,
               ut? Corporis, similique, voluptates nisi amet ducimus omnis natus
               cum dicta, optio accusantium est saepe quisquam illum aut fugit!
               Quibusdam, quasi.
             </p>
             <div class="buttons">
-              <a href="#" class="button button--primary">Demo</a>
-              <a href="#" class="button button--ghost">Code</a>
+              <a href="#" class="button button--primary" target="_blank"
+                >Demo</a
+              >
+              <a href="#" class="button button--ghost" target="_blank">Code</a>
             </div>
           </div>
         </article>
@@ -257,22 +311,38 @@
               <span class="project__tag">JS</span>
               <span class="project__tag">Responsive</span>
             </div>
-            <h2 class="card__title">Landing page</h2>
-            <p class="card__text">
+            <h2
+              class="card__title"
+              data-section="Project"
+              data-value="third-project-title"
+            >
+              Landing page
+            </h2>
+            <p
+              class="card__text"
+              data-section="Project"
+              data-value="first-paragraph-description-p3"
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
               voluptate soluta, ea eius exercitationem reiciendis quis excepturi
               incidunt nostrum mollitia, aut facilis optio id. Maiores labore
               placeat optio reiciendis quos!
             </p>
-            <p class="card__text">
+            <p
+              class="card__text"
+              data-section="Project"
+              data-value="second-paragraph-description-p3"
+            >
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias,
               ut? Corporis, similique, voluptates nisi amet ducimus omnis natus
               cum dicta, optio accusantium est saepe quisquam illum aut fugit!
               Quibusdam, quasi.
             </p>
             <div class="buttons">
-              <a href="#" class="button button--primary">Demo</a>
-              <a href="#" class="button button--ghost">Code</a>
+              <a href="#" class="button button--primary" target="_blank"
+                >Demo</a
+              >
+              <a href="#" class="button button--ghost" target="_blank">Code</a>
             </div>
           </div>
         </article>
