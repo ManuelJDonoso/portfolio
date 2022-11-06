@@ -142,6 +142,14 @@ img {
   font-size: 0.9rem;
   line-height: 1.6;
 }
+@media screen and (min-width: 720px) {
+  .card--project {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-column: 1 / -1;
+  }
+}
+
 icon {
   margin-right: 1em;
 }
@@ -233,5 +241,66 @@ icon {
 @keyframes skills-bar-fill {
   to {
     transform: translateX(var(--skills-bar-length));
+  }
+}
+.project {
+  position: relative;
+}
+@media screen and (min-width: 720px) {
+  .project {
+    margin-left: 2em;
+  }
+}
+.project__tags {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em 0;
+  font-size: 0.6rem;
+  width: 275px;
+}
+
+@media screen and (min-width: 720px) {
+  .project__tags {
+    width: 325px;
+    font-size: 0.8rem;
+  }
+}
+
+.project__tag {
+  padding: 0.4em 0.8em;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+.project p:last-of-type {
+  padding-bottom: 50px;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 225px;
+}
+.button {
+  width: 100px;
+  line-height: 2.5;
+  text-align: center;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.button--primary {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+.button--ghost {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+@media screen and (min-width: 720px) {
+  .buttons {
+    position: absolute;
+    bottom: 1em;
   }
 }
