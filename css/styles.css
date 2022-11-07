@@ -64,7 +64,8 @@ body.dark {
   justify-content: space-between;
 }
 
-.flags__item {
+.flags__item,
+.tag__item {
   width: 30px;
 }
 
