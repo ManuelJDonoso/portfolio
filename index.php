@@ -8,25 +8,25 @@
   <title>portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="shortcut icon" href="assets/icons/logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="public/css/styles.css" />
+  <link rel="shortcut icon" href="public/assets/icons/logo.ico" type="image/x-icon" />
 </head>
 
 <body class="dark">
   <header class="header">
     <div class="switches">
       <div id="toggle-theme" class="toggle-theme">
-        <img id="toggle-icon" src="assets/icons/moon.svg" alt="icon theme" class="toggle-theme__icon" />
+        <img id="toggle-icon" src="public/assets/icons/moon.svg" alt="icon theme" class="toggle-theme__icon" />
         <p id="toggle-text" class="toggle-theme__text">Dark mode</p>
       </div>
     </div>
     <!-- Selector multi-idiomas -->
     <div id="flags" class="flags">
       <div class="flags__item">
-        <img src="assets/icons/es.svg" data-language="es" alt="" />
+        <img src="public/assets/icons/es.svg" data-language="es" alt="" />
       </div>
       <div class="flags__item">
-        <img src="assets/icons/gb.svg" data-language="en" alt="" />
+        <img src="public/assets/icons/gb.svg" data-language="en" alt="" />
       </div>
     </div>
 
@@ -47,7 +47,7 @@
       <article class="card card--profile">
         <!-- contenedor imagen -->
         <div class="card__image-container">
-          <img src="assets/images/profile.jpg" alt="" />
+          <img src="public/assets/images/profile.jpg" alt="" />
         </div>
         <!-- cabecera de la targeta -->
         <div class="card__header">
@@ -161,50 +161,33 @@
       <!-- proyectos -->
       <article class="card card--project">
         <div class="card__image-container">
-          <img src="assets/images/project_portfolio.jpg" alt="Landing page" class="card__image" />
+          <img src="public/assets/images/project_portfolio.jpg" alt="Landing page" class="card__image" />
         </div>
         <div class="project">
 
-          <!-- <div id="flags" class="flags">
-            <div class="flags__item">
-              <img src="assets/icons/es.svg" data-language="es" alt="" />
-            </div>
-            <div class="flags__item">
-              <img src="assets/icons/gb.svg" data-language="en" alt="" />
-            </div>
-          </div> -->
-
-
           <div class="project__tags">
 
-
-
-
-
-
-
-
-
             <span class="project__tag">
               <div class="tag__item">
-                <img src="assets/icons/html.svg" alt="" />
+                <img src="public/assets/icons/html.svg" alt="" />
               </div>
 
             </span>
+
             <span class="project__tag">
               <div class="tag__item">
-                <img src="assets/icons/css.svg" alt="" />
+                <img src="public/assets/icons/css.svg" alt="" />
               </div>
             </span>
             <span class="project__tag">
 
               <div class="tag__item">
-                <img src="assets/icons/js.svg" alt="" />
+                <img src="public/assets/icons/js.svg" alt="" />
               </div>
             </span>
             <span class="project__tag">
               <div class="tag__item">
-                <img src="assets/icons/responsive.svg" alt="" />
+                <img src="public/assets/icons/responsive.svg" alt="" />
               </div>
             </span>
           </div>
@@ -232,11 +215,11 @@
 
       <article class="card card--project">
         <div class="card__image-container">
-          <img src="assets/images/project.jpg" alt="Landing page" class="card__image" />
+          <img src="public/assets/images/project.jpg" alt="Landing page" class="card__image" />
         </div>
         <div class="project">
           <div class="project__tags">
-            <span class="project__tag">html</span>
+
             <span class="project__tag">CSS</span>
             <span class="project__tag">JS</span>
             <span class="project__tag">Responsive</span>
@@ -265,7 +248,7 @@
 
       <article class="card card--project">
         <div class="card__image-container">
-          <img src="assets/images/project.jpg" alt="Landing page" class="card__image" />
+          <img src="public/assets/images/project.jpg" alt="Landing page" class="card__image" />
         </div>
         <div class="project">
           <div class="project__tags">
@@ -298,7 +281,7 @@
     </section>
   </main>
 
-  <script src="js/scripts.js"></script>
+  <script src="public/js/scripts.js"></script>
 </body>
 
 </html>
