@@ -1,3 +1,6 @@
+<?php
+include "./php/view/partials/constantes.php"
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -164,36 +167,23 @@
           <img src="public/assets/images/project_portfolio.jpg" alt="Landing page" class="card__image" />
         </div>
         <div class="project">
-
-          <div class="project__tags">
-
-            <span class="project__tag">
-              <div class="tag__item">
-                <img src="public/assets/icons/html.svg" alt="" />
-              </div>
-
-            </span>
-
-            <span class="project__tag">
-              <div class="tag__item">
-                <img src="public/assets/icons/css.svg" alt="" />
-              </div>
-            </span>
-            <span class="project__tag">
-
-              <div class="tag__item">
-                <img src="public/assets/icons/js.svg" alt="" />
-              </div>
-            </span>
-            <span class="project__tag">
-              <div class="tag__item">
-                <img src="public/assets/icons/responsive.svg" alt="" />
-              </div>
-            </span>
-          </div>
           <h2 class="card__title" data-section="Project" data-value="first-project-title">
             Landing page
           </h2>
+          <div class="project__tags">
+
+            <?php echo html_tag ;
+            echo css_tag;
+            echo js_tag;
+            echo responsive_tag;
+            echo php_tag;
+            echo java_tag;
+            echo node_tag;
+            echo react_tag;
+            echo vba_tag;             
+         ?>
+          </div>
+
           <p class="card__text" data-section="Project" data-value="first-paragraph-description-p1">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
             voluptate soluta, ea eius exercitationem reiciendis quis excepturi
@@ -219,10 +209,20 @@
         </div>
         <div class="project">
           <div class="project__tags">
+            <?php echo html_tag ;
+            echo css_tag;
+            echo js_tag;
+            echo responsive_tag;
+            echo php_tag;
+            echo java_tag;
+            echo node_tag;
+            echo react_tag;
+            echo vba_tag;             
+         ?>
 
-            <span class="project__tag">CSS</span>
-            <span class="project__tag">JS</span>
-            <span class="project__tag">Responsive</span>
+
+
+
           </div>
           <h2 class="card__title" data-section="Project" data-value="second-project-title">
             Landing page
@@ -251,15 +251,23 @@
           <img src="public/assets/images/project.jpg" alt="Landing page" class="card__image" />
         </div>
         <div class="project">
-          <div class="project__tags">
-            <span class="project__tag">html</span>
-            <span class="project__tag">CSS</span>
-            <span class="project__tag">JS</span>
-            <span class="project__tag">Responsive</span>
-          </div>
           <h2 class="card__title" data-section="Project" data-value="third-project-title">
             Landing page
           </h2>
+          <div class="project__tags">
+            <?php 
+              echo html_tag ;
+              echo css_tag;
+              echo js_tag;
+              echo responsive_tag;
+              echo php_tag;
+              echo java_tag;
+              echo node_tag;
+              echo react_tag;
+              echo vba_tag;             
+         ?>
+          </div>
+
           <p class="card__text" data-section="Project" data-value="first-paragraph-description-p3">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
             voluptate soluta, ea eius exercitationem reiciendis quis excepturi

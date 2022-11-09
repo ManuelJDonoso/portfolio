@@ -285,7 +285,7 @@ icon {
 .project__tag {
   padding: 0.4em 0.8em;
   border-radius: var(--border-radius);
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
   color: var(--bg-color);
 }
 .project p:last-of-type {
