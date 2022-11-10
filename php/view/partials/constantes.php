@@ -9,3 +9,4 @@ define("vba_tag",'<span class="project__tag"><div class="tag__item"><img src="pu
 define("php_tag",'<span class="project__tag"><div class="tag__item"><img src="public/assets/icons/php.svg" alt="tag php" /></div></span>');
 define("react_tag",'<span class="project__tag"><div class="tag__item"><img src="public/assets/icons/react.svg" alt="tag react" /></div></span>');
 define("responsive_tag",'<span class="project__tag"><div class="tag__item"><img src="public/assets/icons/responsive.svg" alt="tag responsive" /></div></span>');
+define("mysql",'<span class="project__tag"><div class="tag__item"><img src="public/assets/icons/mysql.svg" alt="tag MySql" /></div></span>');

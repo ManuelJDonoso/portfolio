@@ -1,5 +1,6 @@
 <?php
-include "./php/view/partials/constantes.php"
+include "./php/view/partials/constantes.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
