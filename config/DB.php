@@ -21,4 +21,31 @@ class DB {
       return $conexion;
     }
 
+    public static function getTecnologiesProyect($proyect_tecnologies){
+        
+        $conexion = self::getConnection();
+        try{
+            $sql= "SELECT tecnologia FROM proyectos INNER JOIN union_proyect_tecno on union_proyect_tecno.proyecto_fk = proyectos.id_proyectos INNER JOIN languages_technologies on union_proyect_tecno.tecnologia_fk = languages_technologies.id_tecnologias WHERE proyectos.id_proyectos='".$proyect_tecnologies."'";
+            
+            $resultado = $conexion->query($sql);
+            $tecnologies = array();
+
+            if ($resultado) {
+                    $row = $resultado->fetch();
+                    while ($row != null) {
+
+                        $tecnologies[] = $row;
+                        $row = $resultado->fetch();
+                    }
+                }
+
+                $conexion = null;
+
+                return $tecnologies;
+        } catch (PDOException $e) {
+                echo "ERROR - No se pudieron obtener las tecnologias: " . $e->getMessage();
+        }
+    
+    }
+
 }
