@@ -78,7 +78,34 @@ class DB {
     
     }
 
+    //obtener datos de un proyecto
+    public static function getProyect( $id){
+        
+        $conexion = self::getConnection();
+        try{
+            $sql= "SELECT * FROM proyectos  WHERE id_proyectos = '".$id."'";
+            
+            $resultado = $conexion->query($sql);
+            $proyects = array();
+
+            if ($resultado) {
+                    $row = $resultado->fetch();
+                    while ($row != null) {
+                        $tecnologies =self::getTecnologiesProyect($row["id_proyectos"]);   
+                        $row[]=$tecnologies;
+                        $proyects[] = $row;
+                        $row = $resultado->fetch();
+                    }
+                }
+
+                $conexion = null;
+
+                return $proyects[0];
+        } catch (PDOException $e) {
+                echo "ERROR - No se pudieron obtener los proyectos: " . $e->getMessage();
+        }
     
+    }
 
 
 }
