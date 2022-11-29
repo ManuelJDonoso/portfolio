@@ -21,6 +21,7 @@ class DB {
       return $conexion;
     }
 
+    //obtener las tecnologias y lenguajes usados en un proyecto
     public static function getTecnologiesProyect($proyect_tecnologies){
         
         $conexion = self::getConnection();
@@ -47,5 +48,37 @@ class DB {
         }
     
     }
+
+    //obtener todos los proyectos.
+     public static function getAllProyects(){
+        
+        $conexion = self::getConnection();
+        try{
+            $sql= "SELECT * FROM proyectos  ";
+            
+            $resultado = $conexion->query($sql);
+            $proyects = array();
+
+            if ($resultado) {
+                    $row = $resultado->fetch();
+                    while ($row != null) {
+                        $tecnologies =self::getTecnologiesProyect($row["id_proyectos"]);   
+                        $row[]=$tecnologies;
+                        $proyects[] = $row;
+                        $row = $resultado->fetch();
+                    }
+                }
+
+                $conexion = null;
+
+                return $proyects;
+        } catch (PDOException $e) {
+                echo "ERROR - No se pudieron obtener los proyectos: " . $e->getMessage();
+        }
+    
+    }
+
+    
+
 
 }
