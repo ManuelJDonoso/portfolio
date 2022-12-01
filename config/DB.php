@@ -38,11 +38,11 @@ class DB {
     }
 
     //obtener las tecnologias y lenguajes usados en un proyecto
-    public static function getTechnologiesProyect($proyect_technologies){
+    public static function getTechnologiesProject($project_technologies){
         
         $conexion = self::getConnection();
         try{
-            $sql= "SELECT tecnologia FROM proyectos INNER JOIN union_proyect_tecno on union_proyect_tecno.proyecto_fk = proyectos.id_proyectos INNER JOIN languages_technologies on union_proyect_tecno.tecnologia_fk = languages_technologies.id_tecnologias WHERE proyectos.id_proyectos='".$proyect_technologies."'";
+            $sql= "SELECT tecnologia FROM proyectos INNER JOIN union_proyect_tecno on union_proyect_tecno.proyecto_fk = proyectos.id_proyectos INNER JOIN languages_technologies on union_proyect_tecno.tecnologia_fk = languages_technologies.id_tecnologias WHERE proyectos.id_proyectos='".$project_technologies."'";
             
             $resultado = $conexion->query($sql);
             $technologies = array();
@@ -66,28 +66,28 @@ class DB {
     }
 
     //obtener todos los proyectos.
-     public static function getAllProyects(){
+     public static function getAllProjects(){
         
         $conexion = self::getConnection();
         try{
             $sql= "SELECT * FROM proyectos  ";
             
             $resultado = $conexion->query($sql);
-            $proyects = array();
+            $projects = array();
 
             if ($resultado) {
                     $row = $resultado->fetch();
                     while ($row != null) {
-                        $technologies =self::getTechnologiesProyect($row["id_proyectos"]);   
+                        $technologies =self::getTechnologiesProject($row["id_proyectos"]);   
                         $row[]=$technologies;
-                        $proyects[] = $row;
+                        $projects[] = $row;
                         $row = $resultado->fetch();
                     }
                 }
 
                 $conexion = null;
 
-                return $proyects;
+                return $projects;
         } catch (PDOException $e) {
                 echo "ERROR - No se pudieron obtener los proyectos: " . $e->getMessage();
         }
@@ -95,28 +95,28 @@ class DB {
     }
 
     //obtener datos de un proyecto
-    public static function getProyect( $id){
+    public static function getProject( $id){
         
         $conexion = self::getConnection();
         try{
             $sql= "SELECT * FROM proyectos  WHERE id_proyectos = '".$id."'";
             
             $resultado = $conexion->query($sql);
-            $proyects = array();
+            $projects = array();
 
             if ($resultado) {
                     $row = $resultado->fetch();
                     while ($row != null) {
-                        $technologies =self::getTechnologiesProyect($row["id_proyectos"]);   
+                        $technologies =self::getTechnologiesProject($row["id_proyectos"]);   
                         $row[]=$technologies;
-                        $proyects[] = $row;
+                        $projects[] = $row;
                         $row = $resultado->fetch();
                     }
                 }
 
                 $conexion = null;
 
-                return $proyects[0];
+                return $projects[0];
         } catch (PDOException $e) {
                 echo "ERROR - No se pudieron obtener los proyectos: " . $e->getMessage();
         }
@@ -125,19 +125,19 @@ class DB {
 
 
     //obtener  proyectos con las tecnologias o lenguajes  
-    public static function getProyectsByTechnologies( $ArrayTechnologies){
+    public static function getProjectsByTechnologies( $ArrayTechnologies){
         
         $conexion = self::getConnection();
         try{
-            $sql= "SELECT id_proyectos,titulo,Title,parrafos,paragraph, dir_img dir_proyect, dir_code FROM proyectos INNER JOIN union_proyect_tecno on union_proyect_tecno.proyecto_fk = proyectos.id_proyectos INNER JOIN languages_technologies on union_proyect_tecno.tecnologia_fk = languages_technologies.id_tecnologias WHERE tecnologia='php' or tecnologia='html' GROUP BY id_proyectos";
+            $sql= "SELECT id_proyectos,titulo,Title,parrafos,paragraph, dir_img dir_proyect, dir_code FROM proyectos INNER JOIN union_proyect_tecno on union_proyect_tecno.proyecto_fk = proyectos.id_proyectos INNER JOIN languages_technologies on union_proyect_tecno.tecnologia_fk = languages_technologies.id_tecnologias GROUP BY id_proyectos";
             
             $resultado = $conexion->query($sql);
-            $proyects = array();
+            $projects = array();
 
             if ($resultado) {
                     $row = $resultado->fetch();
                     while ($row != null) {
-                         $technologies =self::getTechnologiesProyect($row["id_proyectos"]);   
+                         $technologies =self::getTechnologiesProject($row["id_proyectos"]);   
                          $temTechnologies=array();
                      
                          foreach ($technologies as $key => $value) {
@@ -154,7 +154,7 @@ class DB {
                          if($valid){
 
                             $row[]=$technologies;
-                            $proyects[] = $row;
+                            $projects[] = $row;
                          }
                         $row = $resultado->fetch();
                     }
@@ -162,7 +162,7 @@ class DB {
 
                 $conexion = null;
 
-                return $proyects;
+                return $projects;
         } catch (PDOException $e) {
                 echo "ERROR - No se pudieron obtener los proyectos: " . $e->getMessage();
         }
@@ -170,11 +170,11 @@ class DB {
     }
     
     //añadir proyecto nuevo a la base de datos
-    public static function addNewProyect($data,$Technologies){
+    public static function addNewProject($data,$Technologies){
         $conexion = self::getConnection();
         try {
             //code...
-            $sql = "INSERT INTO proyectos (id_proyectos, titulo, Title, parrafos, paragraph, dir_proyect, dir_code, dir_img) VALUES (null, :titulo, :Title, :parrafos, :paragraph, :dir_proyect, :dir_code, :dir_img)";
+            $sql = "INSERT INTO proyectos (id_proyectos, titulo, Title, parrafos, paragraph, dir_project, dir_code, dir_img) VALUES (null, :titulo, :Title, :parrafos, :paragraph, :dir_project, :dir_code, :dir_img)";
             $conexion->prepare($sql)->execute($data);
             $id = $conexion->lastInsertId();
     
@@ -193,7 +193,25 @@ class DB {
        
     }
 
+    //modificar proyecto
+    public static function modifyProject($id_Project,$data,$Technologies){
+         $conexion = self::getConnection();
+         try {
+            $sql= "UPDATE proyectos SET titulo = '$data[titulo]', Title = '$data[Title]', parrafos = '$data[parrafos]', paragraph = '$data[paragraph]', dir_img = '$data[dir_img]', dir_project = '$data[dir_project]', dir_code = '$data[dir_code]' WHERE `proyectos`.`id_proyectos` = $id_Project";
+            $conexion->prepare($sql)->execute($data);
 
-
+            $sql= "DELETE FROM union_proyect_tecno WHERE proyecto_fk = $id_Project ";
+            $conexion->prepare($sql)->execute($data);
+               foreach ($Technologies as $key => $value) {
+                $id_tecnology = self::getIdTechnology($value);
+                $sql = "INSERT INTO union_proyect_tecno (proyecto_fk,tecnologia_fk) VALUES ($id_Project, $id_tecnology)";
+                $conexion->prepare($sql)->execute($data);
+                
+            }
+        } catch (PDOException $e) {
+                echo "ERROR - No se pudieron obtener los proyectos: " . $e->getMessage();
+        
+         }
+    }
 
 }
