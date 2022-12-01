@@ -134,10 +134,12 @@ class DB {
                         //  var_dump($existe);
                         //  var_dump($temTechnologies);
                         //  var_dump($ArrayTechnologies);
-                         var_dump($valid);
-                         
-                         $row[]=$technologies;
-                        $proyects[] = $row;
+                        // var_dump($valid);
+                         if($valid){
+
+                             $row[]=$technologies;
+                            $proyects[] = $row;
+                         }
                         $row = $resultado->fetch();
                     }
                 }
