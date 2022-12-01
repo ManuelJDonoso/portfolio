@@ -172,15 +172,22 @@ class DB {
     //añadir proyecto nuevo a la base de datos
     public static function addNewProyect($data,$Technologies){
         $conexion = self::getConnection();
-        $sql = "INSERT INTO proyectos (id_proyectos, titulo, Title, parrafos, paragraph, dir_proyect, dir_code, dir_img) VALUES (null, :titulo, :Title, :parrafos, :paragraph, :dir_proyect, :dir_code, :dir_img)";
-        $conexion->prepare($sql)->execute($data);
-        $id = $conexion->lastInsertId();
-
-        foreach ($Technologies as $key => $value) {
-            $id_tecnology = self::getIdTechnology($value);
-            $sql = "INSERT INTO union_proyect_tecno (proyecto_fk,tecnologia_fk) VALUES ($id, $id_tecnology)";
+        try {
+            //code...
+            $sql = "INSERT INTO proyectos (id_proyectos, titulo, Title, parrafos, paragraph, dir_proyect, dir_code, dir_img) VALUES (null, :titulo, :Title, :parrafos, :paragraph, :dir_proyect, :dir_code, :dir_img)";
             $conexion->prepare($sql)->execute($data);
-            
+            $id = $conexion->lastInsertId();
+    
+            foreach ($Technologies as $key => $value) {
+                $id_tecnology = self::getIdTechnology($value);
+                $sql = "INSERT INTO union_proyect_tecno (proyecto_fk,tecnologia_fk) VALUES ($id, $id_tecnology)";
+                $conexion->prepare($sql)->execute($data);
+                
+            }
+             $conexion = null;
+        }  catch (PDOException $e) {
+                echo "ERROR - No se pudieron obtener los proyectos: " . $e->getMessage();
+        
         }
         
        
