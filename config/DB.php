@@ -16,7 +16,26 @@ class DB {
         return $conexion;
     }
    
+    //obtener el id de la tecnologia a traves del nombre
+    private static function getIdTechnology($Technology){
+        $conexion = self::getConnection();
+        try {
+              $sql ="SELECT id_tecnologias FROM languages_technologies WHERE tecnologia = '$Technology'";
+              
+              $resultado = $conexion->query($sql);
 
+              if ($resultado) {
+                    $row = $resultado->fetch();
+              }
+
+              $conexion = null;
+              return $row[0];
+        } catch (PDOException $e) {
+                echo "ERROR - No se pudieron obtener el id tecnologia: " . $e->getMessage();
+       
+        }
+
+    }
 
     //obtener las tecnologias y lenguajes usados en un proyecto
     public static function getTechnologiesProyect($proyect_technologies){
@@ -134,7 +153,7 @@ class DB {
                        
                          if($valid){
 
-                             $row[]=$technologies;
+                            $row[]=$technologies;
                             $proyects[] = $row;
                          }
                         $row = $resultado->fetch();
@@ -150,5 +169,24 @@ class DB {
     
     }
     
+    //añadir proyecto nuevo a la base de datos
+    public static function addNewProyect($data,$Technologies){
+        $conexion = self::getConnection();
+        $sql = "INSERT INTO proyectos (id_proyectos, titulo, Title, parrafos, paragraph, dir_proyect, dir_code, dir_img) VALUES (null, :titulo, :Title, :parrafos, :paragraph, :dir_proyect, :dir_code, :dir_img)";
+        $conexion->prepare($sql)->execute($data);
+        $id = $conexion->lastInsertId();
+
+        foreach ($Technologies as $key => $value) {
+            $id_tecnology = self::getIdTechnology($value);
+            $sql = "INSERT INTO union_proyect_tecno (proyecto_fk,tecnologia_fk) VALUES ($id, $id_tecnology)";
+            $conexion->prepare($sql)->execute($data);
+            
+        }
+        
+       
+    }
+
+
+
 
 }
