@@ -120,7 +120,7 @@ class DB {
                     while ($row != null) {
                          $technologies =self::getTechnologiesProyect($row["id_proyectos"]);   
                          $temTechnologies=array();
-                         //var_dump ($technologies);
+                     
                          foreach ($technologies as $key => $value) {
                             $temTechnologies [] =$value["tecnologia"];
                          }
@@ -131,10 +131,7 @@ class DB {
                            $existe = in_array($value,$temTechnologies);
                             if(!$existe) $valid=false;
                         }
-                        //  var_dump($existe);
-                        //  var_dump($temTechnologies);
-                        //  var_dump($ArrayTechnologies);
-                        // var_dump($valid);
+                       
                          if($valid){
 
                              $row[]=$technologies;
