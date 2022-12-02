@@ -208,10 +208,27 @@ class DB {
                 $conexion->prepare($sql)->execute($data);
                 
             }
+            $conexion = null;
         } catch (PDOException $e) {
                 echo "ERROR - No se pudieron obtener los proyectos: " . $e->getMessage();
         
          }
+    }
+
+    //eliminar un proyecto
+    public static function DeleteProject($id){
+         $conexion = self::getConnection();
+
+         try {
+            $sql="DELETE FROM proyectos WHERE id_proyectos ='$id'";
+            $conexion->prepare($sql)->execute();
+            
+            $conexion = null;
+         } catch (PDOException $e) {
+                echo "ERROR - No se pudieron obtener los proyectos: " . $e->getMessage();
+        
+         }
+
     }
 
 }
